@@ -12,7 +12,7 @@ const createUser = async (req, res = response) => {
 		if(user){
 			return res.status(400).json({
 				ok: false,
-				msg: "User already exists with that email"
+				message: "User already exists with that email"
 			});
 		}
 
@@ -54,7 +54,7 @@ const userLogin = async (req, res = response) => {
 		if(!user){
 			return res.status(400).json({
 				ok: false,
-				msg: "User and password don't match"
+				message: "User and password don't match"
 			});
 		}
 
@@ -64,7 +64,7 @@ const userLogin = async (req, res = response) => {
 		if(!validPassword){
 			return res.status(400).json({
 				ok: false,
-				msg: "User and password don't match"
+				message: "User and password don't match"
 			});
 		}
 
@@ -101,6 +101,8 @@ const renewToken = async (req, res = response) => {
 
 	res.json({
 		ok: true,
+		uid, 
+		name,
 		token
 	});
 };
